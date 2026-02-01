@@ -1,0 +1,27 @@
+# Build outputs
+build/
+sdkconfig.old
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Development secrets
+data/.env
+
+# ESP-IDF
+dependencies.lock
+managed_components/
+
+.env

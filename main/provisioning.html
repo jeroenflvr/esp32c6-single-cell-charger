@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battery Charger Setup</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #555;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .info {
+            background: #e7f3ff;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔋 Battery Charger Setup</h1>
+    <div class='info'>Configure your WiFi and InfluxDB settings</div>
+    <form action='/save' method='POST'>
+        <label>WiFi SSID:</label>
+        <input name='wifi_ssid' value='{{WIFI_SSID}}' required>
+        
+        <label>WiFi Password:</label>
+        <input name='wifi_pass' type='password' value='{{WIFI_PASSWORD}}' required>
+        
+        <label>InfluxDB URL:</label>
+        <input name='influx_url' placeholder='http://your-influx:8086' value='{{INFLUX_URL}}' required>
+        
+        <label>InfluxDB Organization:</label>
+        <input name='influx_org' value='{{INFLUX_ORG}}' required>
+        
+        <label>InfluxDB Bucket:</label>
+        <input name='influx_bucket' value='{{INFLUX_BUCKET}}' required>
+        
+        <label>InfluxDB Token:</label>
+        <input name='influx_token' type='password' value='{{INFLUX_TOKEN}}' required>
+        
+        <label>Device ID (Charger Name):</label>
+        <input name='device_id' placeholder='charger-01' value='{{DEVICE_ID}}' required>
+        
+        <label>Timezone:</label>
+        <input name='timezone' placeholder='Europe/Brussels' value='{{TIMEZONE}}' required>
+        
+        <button type='submit'>Save & Reboot</button>
+    </form>
+</body>
+</html>

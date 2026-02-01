@@ -1,0 +1,11 @@
+idf_component_register(SRCS "main.c" 
+                            "config.c" 
+                            "wifi_manager.c" 
+                            "sensor.c" 
+                            "influxdb.c" 
+                            "provisioning.c"
+                            "time_manager.c"
+                            "webserver.c"
+                       INCLUDE_DIRS "."
+                       EMBED_FILES "provisioning.html" "success.html" "dashboard.html"
+                       REQUIRES driver nvs_flash esp_wifi esp_netif esp_http_client esp_http_server spiffs esp_adc esp_timer esp_netif_stack)
