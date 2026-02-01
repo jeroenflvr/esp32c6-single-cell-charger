@@ -225,6 +225,8 @@
         const maxDataPoints = 180; // 30 minutes at 10s intervals
         const voltageHistory = [];
         const timeLabels = [];
+        let lastChartUpdate = 0;
+        const chartUpdateInterval = 10000; // Add data point every 10 seconds
         
         // Chart setup
         const canvas = document.getElementById('voltageChart');
@@ -363,12 +365,16 @@
                 } else {
                     overlay.classList.remove('visible');
                     
-                    // Add to chart history
-                    voltageHistory.push(data.voltage);
-                    if (voltageHistory.length > maxDataPoints) {
-                        voltageHistory.shift();
+                    // Add to chart history every 10 seconds (for 30 min of data)
+                    const now = Date.now();
+                    if (now - lastChartUpdate >= chartUpdateInterval) {
+                        voltageHistory.push(data.voltage);
+                        if (voltageHistory.length > maxDataPoints) {
+                            voltageHistory.shift();
+                        }
+                        lastChartUpdate = now;
+                        drawChart();
                     }
-                    drawChart();
                 }
                 
             } catch (error) {

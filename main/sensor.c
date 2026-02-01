@@ -27,10 +27,10 @@ static const char *TAG = "sensor";
 #define CELL_FULL_VOLTAGE    4.15 /* Voltage considered fully charged */
 
 /* Voltage change thresholds for state detection (in mV) */
-#define VOLTAGE_RISING_THRESHOLD   20  /* mV increase over period to consider charging */
-#define VOLTAGE_FALLING_THRESHOLD  20  /* mV decrease over period to consider discharging */
-#define VOLTAGE_STABLE_COUNT       10  /* Number of stable readings to confirm state */
-#define VOLTAGE_HISTORY_SIZE       10  /* Number of readings to compare for trend */
+#define VOLTAGE_RISING_THRESHOLD   3   /* mV increase over period to consider charging */
+#define VOLTAGE_FALLING_THRESHOLD  3   /* mV decrease over period to consider discharging */
+#define VOLTAGE_STABLE_COUNT       30  /* Number of stable readings to confirm state */
+#define VOLTAGE_HISTORY_SIZE       60  /* Number of readings to compare for trend (60s at 1s intervals) */
 
 static adc_oneshot_unit_handle_t adc_handle = NULL;
 static adc_cali_handle_t adc_cali_handle = NULL;
