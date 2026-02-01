@@ -331,19 +331,6 @@ bool sensor_is_new_cell(void)
     return result;
 }
 
-const char* sensor_get_cell_id(void)
-{
-    return s_cell_id;
-}
-
-uint32_t sensor_get_charging_time(void)
-{
-    if (s_cell_connect_time > 0) {
-        return (uint32_t)((esp_timer_get_time() - s_cell_connect_time) / 1000000);
-    }
-    return 0;
-}
-
 const char* sensor_charge_state_str(charge_state_t state)
 {
     switch (state) {

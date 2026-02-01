@@ -9,7 +9,7 @@
 static const char *TAG = "config";
 
 /* NVS Configuration Keys */
-static const char NVS_NAMESPACE[] = "thermo_cfg";
+static const char NVS_NAMESPACE[] = "charger_cfg";
 static const char NVS_KEY_PROVISIONED[] = "provisioned";
 static const char NVS_KEY_WIFI_SSID[] = "wifi_ssid";
 static const char NVS_KEY_WIFI_PASS[] = "wifi_pass";

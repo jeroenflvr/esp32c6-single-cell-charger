@@ -52,18 +52,6 @@ void sensor_update_charge_state(sensor_data_t *data);
 bool sensor_is_new_cell(void);
 
 /**
- * Get the current cell ID (generated when cell is connected)
- * @return pointer to cell_id string
- */
-const char* sensor_get_cell_id(void);
-
-/**
- * Get charging time in seconds for current cell
- * @return seconds since cell was connected
- */
-uint32_t sensor_get_charging_time(void);
-
-/**
  * Get string representation of charge state
  * @param state The charge state
  * @return Human-readable string
